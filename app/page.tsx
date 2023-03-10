@@ -18,6 +18,10 @@ export default function Home() {
   async function _onApprove(data: OnApproveData, actions: OnApproveActions) {
     let order = await actions.order?.capture();
     console.log(order);
+    // @ts-ignore
+    window.ReactNativeWebView &&
+      // @ts-ignore
+      window.ReactNativeWebView.postMessage(JSON.stringify(order));
     return order;
   }
 
@@ -34,11 +38,19 @@ export default function Home() {
   }
 
   function _onError(err: Record<string, unknown>) {
+    let errObj = {
+      err: err,
+      status: "FAILED",
+    };
+    // @ts-ignore
+    window.ReactNativeWebView &&
+      // @ts-ignore
+      window.ReactNativeWebView.postMessage(JSON.stringify(errObj));
     console.log(err);
   }
 
   return (
-      <div style={{
+    <div style={{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
