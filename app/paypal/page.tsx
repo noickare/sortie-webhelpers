@@ -6,12 +6,14 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useSearchParams } from 'next/navigation';
 
 const initialOptions = {
-    "client-id": "AVhWd9GpWHc_HQpT5eZAwLxf-wg7KrfqBjoFLYmBQOCMRljaYBJ-j7G0W06aa4rMEE56ajsIh7e4gNoR",
+    "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID as string,
     "enable-funding": "venmo",
     currency: "USD",
     intent: "capture",
     // "data-client-token": "AVhWd9GpWHc_HQpT5eZAwLxf-wg7KrfqBjoFLYmBQOCMRljaYBJ-j7G0W06aa4rMEE56ajsIh7e4gNoR",
 };
+
+console.log({ initialOptions })
 
 const Paypal = () => {
     const searchParams = useSearchParams();
