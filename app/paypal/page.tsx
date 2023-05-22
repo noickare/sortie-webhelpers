@@ -13,8 +13,6 @@ const initialOptions = {
     // "data-client-token": "AVhWd9GpWHc_HQpT5eZAwLxf-wg7KrfqBjoFLYmBQOCMRljaYBJ-j7G0W06aa4rMEE56ajsIh7e4gNoR",
 };
 
-console.log({ initialOptions })
-
 const Paypal = () => {
     const searchParams = useSearchParams();
     const params = searchParams.get('amount');
