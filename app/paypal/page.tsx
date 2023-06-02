@@ -64,14 +64,15 @@ const Paypal = () => {
             </div>
         )
     } else {
-        console.log({ amount })
         return (
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                maxWidth: '500px',
+                margin: '0 auto',
             }}>
                 <PayPalScriptProvider options={initialOptions}>
                     <PayPalButtons
